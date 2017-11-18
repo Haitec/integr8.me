@@ -5,8 +5,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar (ionInput)="filterJobs($event)" placeholder="Filter jobs..."></ion-searchbar>
-
   <ion-card *ngFor="let job of jobs; let i = index">
     <ion-card-header (click)="toggleJob(i)" [ngClass]="{'closed': expandedJobId !== i, 'opened': expandedJobId === i}">
       <ion-icon name="arrow-forward" *ngIf="expandedJobId !== i"></ion-icon>
