@@ -2,5 +2,11 @@
   "name": "integr8.me",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {},
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://integr8.me:8080/"
+    }
+  ]
 }

@@ -1,6 +1,8 @@
-import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { Component, OnInit } from "@angular/core";
+import { NavController, Loading, LoadingController } from "ionic-angular";
 import { clamp } from "ionic-angular/util/util";
+
+import { DashboardService } from "./dashboard.service";
 
 class Company {
   name: string;
@@ -21,14 +23,33 @@ class Job {
 
 @Component({
   selector: "page-dashboard",
-  templateUrl: "dashboard.html"
+  templateUrl: "dashboard.html",
+  providers: [DashboardService]
 })
-export class DashboardPage {
+export class DashboardPage implements OnInit {
   jobs: Job[];
   expandedJobId: number;
+  loader: Loading;
 
-  constructor(public navCtrl: NavController) {
-    this.initializeItems();
+  constructor(
+    public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
+    private service: DashboardService
+  ) {
+  }
+
+  ngOnInit() {
+    this.presentLoading();
+    this.service
+      .get()
+      .then(response => {
+        this.jobs = response.json() as Job[];
+        this.dismissLoading();
+      })
+      .catch(error => {
+        this.initializeItems();
+        this.dismissLoading();
+      });
   }
 
   initializeItems() {
@@ -50,26 +71,22 @@ export class DashboardPage {
     ];
   }
 
-  filterJobs(ev: any) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set val to the value of the searchbar
-    let val = ev.target.value;
-
-    // if the value is an empty string don't filter the items
-    if (val && val.trim() != "") {
-      this.jobs = this.jobs.filter(job => {
-        return job.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
-      });
-    }
-  }
-
   toggleJob(i) {
     if (this.expandedJobId === i) {
       this.expandedJobId = -1;
     } else {
       this.expandedJobId = i;
     }
+  }
+
+  presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    this.loader.present();
+  }
+
+  dismissLoading() {
+    this.loader.dismiss();
   }
 }
