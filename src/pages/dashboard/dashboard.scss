@@ -1,6 +1,6 @@
 page-dashboard {
   progress {
-    background: #90be15;
+    background: color($colors, primary);
     border: 0;
     box-shadow: 0 1px 0 #fff;
     border-radius: 9px;
@@ -21,7 +21,7 @@ page-dashboard {
     border-radius: 9px;
   }
   progress::-webkit-progress-value {
-    background: #90be15;
+    background: color($colors, primary);
     border-radius: 9px;
     -webkit-animation: download 5s;
   }
@@ -33,7 +33,23 @@ page-dashboard {
   .opended + ion-list {
     display: inherit;
   }
+
   ion-list.skills {
     margin: 0 !important;
+  }
+
+  .skills {
+    ion-label {
+      margin: 0px 8px 10px 0 !important;
+      padding-left: 10pt;
+    }
+
+    progress {
+      background: color($colors, secondary);
+    }
+
+    progress::-webkit-progress-value {
+      background: color($colors, secondary);
+    }
   }
 }
