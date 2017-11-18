@@ -1,8 +1,14 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
+import { clamp } from "ionic-angular/util/util";
 
 class Company {
   name: string;
+}
+
+class Skill {
+  name: string;
+  score: number;
 }
 
 class Job {
@@ -10,6 +16,7 @@ class Job {
   favourite: boolean;
   company: Company;
   score: number;
+  skills: Skill[];
 }
 
 @Component({
@@ -29,14 +36,16 @@ export class DashboardPage {
       {
         title: "PHP Developer",
         company: { name: "trivago" },
-        score: 0,
-        favourite: true
+        score: 0.3,
+        favourite: true,
+        skills: [{ name: "PHP", score: 0.2 }, { name: "English", score: 0.5 }]
       },
       {
         title: "Java Developer",
         company: { name: "trivago" },
-        score: 0,
-        favourite: false
+        score: 0.5,
+        favourite: false,
+        skills: [{ name: "Java", score: 0 }, { name: "English", score: 0 }]
       }
     ];
   }

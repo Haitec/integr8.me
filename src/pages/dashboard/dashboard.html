@@ -7,18 +7,25 @@
 <ion-content>
   <ion-searchbar (ionInput)="filterJobs($event)" placeholder="Filter jobs..."></ion-searchbar>
 
-  <ion-list no-lines no-padding>
-    <!-- Toggle Button -->
-    <ion-item *ngFor="let job of jobs; let i = index">
-      <button ion-item (click)="toggleJob(i)" detail-none [class.opended]="expandedJobId === i">
-        <ion-icon item-left name="arrow-forward" *ngIf="expandedJobId !== i"></ion-icon>
-        <ion-icon item-left name="arrow-down" *ngIf="expandedJobId === i"></ion-icon>
-        {{ job.title }}<br>
-        <small>{{ job.company.name }}</small>
+  <ion-card *ngFor="let job of jobs; let i = index">
+    <ion-card-header (click)="toggleJob(i)" [ngClass]="{'closed': expandedJobId !== i, 'opened': expandedJobId === i}">
+      <ion-icon name="arrow-forward" *ngIf="expandedJobId !== i"></ion-icon>
+      <ion-icon name="arrow-down" *ngIf="expandedJobId === i"></ion-icon>
+      {{ job.title }}
+      <ion-icon float-right name="star" item-end color="primary" [isActive]="job.favourite"></ion-icon>
+      <br>
+      <small>{{ job.company.name }}</small>
+      <br>
+      <progress [value]="job.score" max="1"></progress>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item *ngFor="let skill of job.skills">
+        {{ skill.name }}
         <br>
-        <progress [value]="job.score * 100" max="100"></progress>
-        <ion-icon name="star" item-end color="primary" [isActive]="job.favourite"></ion-icon>
-      </button>
-    </ion-item>
-  </ion-list>
+        <progress [value]="skill.score" max="1"></progress>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
 </ion-content>

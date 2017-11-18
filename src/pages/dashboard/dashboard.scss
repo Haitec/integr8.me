@@ -13,16 +13,27 @@ page-dashboard {
   }
 
   progress::-moz-progress-bar {
-    background: #F6F6F6;
+    background: #f6f6f6;
     border-radius: 9px;
   }
   progress::-webkit-progress-bar {
-    background: #F6F6F6;
+    background: #f6f6f6;
     border-radius: 9px;
   }
   progress::-webkit-progress-value {
-    background: #90BE15;
+    background: #90be15;
     border-radius: 9px;
     -webkit-animation: download 5s;
+  }
+
+  .closed + ion-list {
+    display: none;
+  }
+
+  .opended + ion-list {
+    display: inherit;
+  }
+  ion-list.skills {
+    margin: 0 !important;
   }
 }
