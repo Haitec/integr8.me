@@ -1,3 +1,28 @@
 page-dashboard {
+  progress {
+    background: #90be15;
+    border: 0;
+    box-shadow: 0 1px 0 #fff;
+    border-radius: 9px;
+    height: 5px;
+    width: 100%;
 
+    -moz-animation: download 5s;
+    -o-animation: download 5s;
+    animation: download 5s;
+  }
+
+  progress::-moz-progress-bar {
+    background: #F6F6F6;
+    border-radius: 9px;
+  }
+  progress::-webkit-progress-bar {
+    background: #F6F6F6;
+    border-radius: 9px;
+  }
+  progress::-webkit-progress-value {
+    background: #90BE15;
+    border-radius: 9px;
+    -webkit-animation: download 5s;
+  }
 }
