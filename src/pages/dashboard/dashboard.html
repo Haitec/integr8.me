@@ -22,7 +22,7 @@
         <small>{{ job.company.name }}</small>
         <br>
         <progress [value]="job.score * 100" max="100"></progress>
-        <ion-icon name="star" item-end [isActive]="job.favourite"></ion-icon>
+        <ion-icon name="star" item-end color="primary" [isActive]="job.favourite"></ion-icon>
       </button>
     </ion-item>
   </ion-list>
