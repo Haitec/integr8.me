@@ -18,6 +18,7 @@ class Job {
 })
 export class DashboardPage {
   jobs: Job[];
+  expandedJobId: number;
 
   constructor(public navCtrl: NavController) {
     this.initializeItems();
@@ -52,6 +53,14 @@ export class DashboardPage {
       this.jobs = this.jobs.filter(job => {
         return job.title.toLowerCase().indexOf(val.toLowerCase()) > -1;
       });
+    }
+  }
+
+  toggleJob(i) {
+    if (this.expandedJobId === i) {
+      this.expandedJobId = -1;
+    } else {
+      this.expandedJobId = i;
     }
   }
 }
