@@ -14,14 +14,14 @@
       <br>
       <small>{{ job.company.name }}</small>
       <br>
-      <progress [value]="job.score" max="1"></progress>
+      <progress [value]="job.score" max="100"></progress>
     </ion-card-header>
 
     <ion-list class="skills">
       <ion-item *ngFor="let skill of job.skills">
         {{ skill.name }}
         <br>
-        <progress [value]="skill.score" max="1"></progress>
+        <progress [value]="skill.score" max="100"></progress>
       </ion-item>
     </ion-list>
   </ion-card>
