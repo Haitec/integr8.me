@@ -8,11 +8,6 @@
   <ion-searchbar (ionInput)="filterJobs($event)" placeholder="Filter jobs..."></ion-searchbar>
 
   <ion-list no-lines no-padding>
-    <!-- <ion-item *ngFor="let job of jobs">
-      {{ job.title }}<br>
-      <progress value="50" max="100"></progress>
-      <ion-icon name="star" item-end></ion-icon>
-    </ion-item> -->
     <!-- Toggle Button -->
     <ion-item *ngFor="let job of jobs; let i = index">
       <button ion-item (click)="toggleJob(i)" detail-none [class.opended]="expandedJobId === i">
