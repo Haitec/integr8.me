@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Challenge</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit)="submit()" novalidate *ngIf="questions.length > 0">
+    <ion-list radio-group *ngFor="let q of questions">
+      <ion-list-header>
+        {{ q.title }}
+      </ion-list-header>
+
+      <ion-item *ngFor="let a of q.answers">
+        <ion-label>{{ a.description }}</ion-label>
+        <ion-radio [value]="a.id" (click)="selectAnswer(q.id, a.id)"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <button type="submit" ion-button block padding>Submit</button>
+    </div>
+  </form>
+</ion-content>

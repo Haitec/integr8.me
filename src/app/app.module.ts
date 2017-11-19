@@ -10,6 +10,7 @@ import { ProfilePage } from "../pages/profile/profile";
 import { ContactPage } from "../pages/contact/contact";
 import { DashboardPage } from "../pages/dashboard/dashboard";
 import { TabsPage } from "../pages/tabs/tabs";
+import { QuizPage } from "../pages/quiz/quiz";
 
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
@@ -22,7 +23,8 @@ import { SplashScreen } from "@ionic-native/splash-screen";
     DashboardPage,
     ProfilePage,
     SkillOverviewPage,
-    TabsPage
+    TabsPage,
+    QuizPage
   ],
   imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
@@ -33,7 +35,8 @@ import { SplashScreen } from "@ionic-native/splash-screen";
     ProfilePage,
     DashboardPage,
     SkillOverviewPage,
-    TabsPage
+    TabsPage,
+    QuizPage
   ],
   providers: [
     StatusBar,
