@@ -1,4 +1,7 @@
 page-dashboard {
+  .page-content {
+    background: #ededed;
+  }
   progress {
     background: color($colors, primary);
     border: 0;
@@ -21,7 +24,7 @@ page-dashboard {
     border-radius: 9px;
   }
   progress::-webkit-progress-value {
-    background: color($colors, primary);
+    background: color($colors, secondary);
     border-radius: 9px;
     -webkit-animation: download 5s;
   }
@@ -44,12 +47,18 @@ page-dashboard {
       padding-left: 10pt;
     }
 
+    button:first-child {
+      padding-top: 7.5pt;
+    }
+
     progress {
       background: color($colors, secondary);
+      opacity: .75;
     }
 
     progress::-webkit-progress-value {
       background: color($colors, secondary);
+      opacity: .75;
     }
   }
 }
