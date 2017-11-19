@@ -12,12 +12,13 @@
     <ion-card *ngFor="let challenge of skills[0].challenges">
       <img src="https://integr8-me.sloppy.zone/{{challenge.image_url}}" />
       <ion-card-content>
-        <ion-card-title (click)="openChallenge(challenge)">
+        <ion-card-title>
           {{challenge.name}}
         </ion-card-title>
         <p>
           {{challenge.description}}
         </p>
+        <button ion-button block (click)="openChallenge(challenge)">Start challenge</button>
       </ion-card-content>
     </ion-card>
   </div>
