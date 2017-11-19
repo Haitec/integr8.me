@@ -6,7 +6,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://integr8.me:8080/"
+      "proxyUrl": "http://172.31.100.59:8080/"
     }
   ]
 }
