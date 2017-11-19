@@ -10,14 +10,13 @@
 <ion-content>
   <div *ngIf="skills">
       <ion-card *ngFor="let challenge of skills[0].challenges">
-          <img src="/assets/imgs/trophy.png"/>
+          <img src="https://integr8-me.sloppy.zone/{{challenge.image_url}}"/>
           <ion-card-content>
             <ion-card-title>
               {{challenge.name}}
               </ion-card-title>
             <p>
-              The most popular industrial group ever, and largely
-              responsible for bringing the music to a mass audience.
+              {{challenge.description}}
             </p>
           </ion-card-content>
         </ion-card>

@@ -1,17 +1,26 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title>
-      Contact
+      My skills
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <img src="https://www.startheregoplaces.com/media/staticpages/Header_CPA-Skills.png"/>
+    <div *ngIf="skills">
+      <ion-list>
+      <ion-list-header>
+        List of skills
+      </ion-list-header>
+      <button ion-item *ngFor="let skill of skills" (click)="openSkill(skill.id, skill.name)">
+        {{skill.name}}
+      </button>
+      </ion-list>
+    </div>
 </ion-content>

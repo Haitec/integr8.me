@@ -12,6 +12,8 @@ class Skill {
 class Challenge {
   id: number;
   name: string;
+  description: string;
+  image_url: string;
   score: number;
 }
 @Component({

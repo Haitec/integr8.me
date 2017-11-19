@@ -1,10 +1,18 @@
 <ion-header>
   <ion-navbar color="dark">
     <ion-title>Dashboard</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="page-content">
+    <ion-card style="margin-top: 20px;" text-center>
+      <img style="width: 145px; padding: 20px;" width="100" src="assets/imgs/integr8me.png">
+    </ion-card>
   <ion-card *ngFor="let job of jobs">
     <ion-card-header (click)="toggleJob(job.id)" [ngClass]="{'closed': expandedJobId !== job.id, 'opened': expandedJobId === job.id}">
       <ion-icon name="arrow-forward" *ngIf="expandedJobId !== job.id"></ion-icon>
