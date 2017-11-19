@@ -1,5 +1,5 @@
 import { SkillOverviewPage } from './../skill-overview/skill-overview';
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { NavController, Loading, LoadingController } from "ionic-angular";
 import { clamp } from "ionic-angular/util/util";
 
@@ -28,7 +28,7 @@ class Job {
   templateUrl: "dashboard.html",
   providers: [DashboardService]
 })
-export class DashboardPage implements OnInit {
+export class DashboardPage {
   jobs: Job[];
   expandedJobId: number;
   loader: Loading;
@@ -39,7 +39,7 @@ export class DashboardPage implements OnInit {
     private service: DashboardService
   ) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.presentLoading();
     this.service
       .get()
