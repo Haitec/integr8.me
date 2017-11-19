@@ -31,6 +31,7 @@ class Answer {
 export class QuizPage {
   loader: Loading;
   id: number = 1;
+  title: string;
   questions: Question[] = [];
   answers = {};
 
@@ -39,7 +40,10 @@ export class QuizPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     private service: QuizService
-  ) {}
+  ) {
+    this.id = this.navParams.data.id;
+    this.title = this.navParams.data.name;
+  }
 
   presentLoading() {
     this.loader = this.loadingCtrl.create({
@@ -67,7 +71,7 @@ export class QuizPage {
     this.service
       .save(this.id, this.answers)
       .then(resp => {
-        console.log(resp.json());
+        this.navCtrl.popToRoot();
       })
       .catch(error => console.log(error));
     this.dismissLoading();

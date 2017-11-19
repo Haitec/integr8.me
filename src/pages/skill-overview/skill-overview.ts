@@ -1,6 +1,7 @@
 import { SkillOverviewService } from "./skill-overview.service";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { QuizPage } from "../quiz/quiz";
 
 class Skill {
   id: number;
@@ -51,5 +52,9 @@ export class SkillOverviewPage {
         this.initializeItems();
         //this.dismissLoading();
       });
+  }
+
+  openChallenge(challenge: Challenge) {
+    this.navCtrl.push(QuizPage, challenge);
   }
 }
