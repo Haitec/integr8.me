@@ -90,4 +90,10 @@ export class DashboardPage implements OnInit {
         this.dismissLoading();
       });
   }
+
+  openSkill(id: number) {
+    this.navCtrl.push('SkillOverview', {
+      id: id
+    });
+  }
 }
