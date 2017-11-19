@@ -1,4 +1,3 @@
-import { SkillOverviewPage } from './../pages/skill-overview/skill-overview';
 import { NgModule, ErrorHandler } from "@angular/core";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -9,6 +8,7 @@ import { AboutPage } from "../pages/about/about";
 import { ProfilePage } from "../pages/profile/profile";
 import { ContactPage } from "../pages/contact/contact";
 import { DashboardPage } from "../pages/dashboard/dashboard";
+import { SkillOverviewPage } from '../pages/skill-overview/skill-overview';
 import { TabsPage } from "../pages/tabs/tabs";
 
 import { StatusBar } from "@ionic-native/status-bar";
