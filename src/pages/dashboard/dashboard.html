@@ -5,12 +5,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let job of jobs; let i = index">
-    <ion-card-header (click)="toggleJob(i)" [ngClass]="{'closed': expandedJobId !== i, 'opened': expandedJobId === i}">
-      <ion-icon name="arrow-forward" *ngIf="expandedJobId !== i"></ion-icon>
-      <ion-icon name="arrow-down" *ngIf="expandedJobId === i"></ion-icon>
+  <ion-card *ngFor="let job of jobs">
+    <ion-card-header (click)="toggleJob(job.id)" [ngClass]="{'closed': expandedJobId !== job.id, 'opened': expandedJobId === job.id}">
+      <ion-icon name="arrow-forward" *ngIf="expandedJobId !== job.id"></ion-icon>
+      <ion-icon name="arrow-down" *ngIf="expandedJobId === job.id"></ion-icon>
       {{ job.title }}
-      <ion-icon float-right name="star" item-end color="primary" [isActive]="job.favourite"></ion-icon>
+      <ion-icon float-right name="star" item-end [color]="job.favourite ? 'primary' : ''" [isActive]="job.favourite" (click)="favourite(!job.favourite, job.id)"></ion-icon>
       <br>
       <small>{{ job.company.name }}</small>
       <br>

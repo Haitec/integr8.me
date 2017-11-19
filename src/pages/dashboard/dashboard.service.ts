@@ -6,12 +6,20 @@ import "rxjs/add/operator/catch";
 import { BaseInput } from "ionic-angular/util/base-input";
 
 const BASE_URL = "/api/dashboard";
+const USER_ID = 1;
 
 @Injectable()
 export class DashboardService {
   constructor(private http: Http) {}
 
-  get(userId: string = "1") {
-    return this.http.get(BASE_URL + "?user=" + userId).toPromise();
+  get() {
+    return this.http.get(BASE_URL + "?user=" + USER_ID).toPromise();
+  }
+
+  favourite(isFavourite: boolean = true, jobId: number) {
+    const fav = isFavourite ? "1" : "0";
+    return this.http
+      .get(`/api/job/${jobId}/favourite/${fav}?user=` + USER_ID)
+      .toPromise();
   }
 }

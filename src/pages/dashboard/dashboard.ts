@@ -14,6 +14,7 @@ class Skill {
 }
 
 class Job {
+  id: number;
   title: string;
   favourite: boolean;
   company: Company;
@@ -35,8 +36,7 @@ export class DashboardPage implements OnInit {
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     private service: DashboardService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.presentLoading();
@@ -53,22 +53,7 @@ export class DashboardPage implements OnInit {
   }
 
   initializeItems() {
-    this.jobs = [
-      {
-        title: "PHP Developer",
-        company: { name: "trivago" },
-        score: 0.3,
-        favourite: true,
-        skills: [{ name: "PHP", score: 0.2 }, { name: "English", score: 0.5 }]
-      },
-      {
-        title: "Java Developer",
-        company: { name: "trivago" },
-        score: 0.5,
-        favourite: false,
-        skills: [{ name: "Java", score: 0 }, { name: "English", score: 0 }]
-      }
-    ];
+    this.jobs = [];
   }
 
   toggleJob(i) {
@@ -88,5 +73,21 @@ export class DashboardPage implements OnInit {
 
   dismissLoading() {
     this.loader.dismiss();
+  }
+
+  favourite(isFavourite: boolean = true, jobId: number) {
+    this.toggleJob(jobId);
+    this.presentLoading();
+    this.service
+      .favourite(isFavourite, jobId)
+      .then(resp => {
+        if (resp.ok)
+          this.jobs.find(j => j.id === jobId).favourite = isFavourite;
+        this.dismissLoading();
+      })
+      .catch(error => {
+        console.log(error);
+        this.dismissLoading();
+      });
   }
 }
