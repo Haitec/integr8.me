@@ -14,8 +14,6 @@ class Challenge {
   name: string;
   score: number;
 }
-
-@IonicPage()
 @Component({
   selector: "page-skill-overview",
   templateUrl: "skill-overview.html",
