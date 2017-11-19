@@ -1,3 +1,4 @@
+import { SkillOverviewPage } from './../pages/skill-overview/skill-overview';
 import { NgModule, ErrorHandler } from "@angular/core";
 import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -20,6 +21,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
     ContactPage,
     DashboardPage,
     ProfilePage,
+    SkillOverviewPage,
     TabsPage
   ],
   imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
@@ -30,6 +32,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
     ContactPage,
     ProfilePage,
     DashboardPage,
+    SkillOverviewPage,
     TabsPage
   ],
   providers: [
