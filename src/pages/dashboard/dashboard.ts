@@ -1,3 +1,4 @@
+import { SkillOverviewPage } from './../skill-overview/skill-overview';
 import { Component, OnInit } from "@angular/core";
 import { NavController, Loading, LoadingController } from "ionic-angular";
 import { clamp } from "ionic-angular/util/util";
@@ -77,7 +78,7 @@ export class DashboardPage implements OnInit {
 
   favourite(isFavourite: boolean = true, jobId: number) {
     this.toggleJob(jobId);
-    this.presentLoading();
+    //this.presentLoading();
     this.service
       .favourite(isFavourite, jobId)
       .then(resp => {
@@ -91,9 +92,10 @@ export class DashboardPage implements OnInit {
       });
   }
 
-  openSkill(id: number) {
-    this.navCtrl.push('SkillOverview', {
-      id: id
+  openSkill(id: number, name: string) {
+    this.navCtrl.push(SkillOverviewPage, {
+      id: id,
+      name: name
     });
   }
 }

@@ -5,7 +5,7 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { BaseInput } from "ionic-angular/util/base-input";
 
-const BASE_URL = "/api/skills/";
+const BASE_URL = "https://integr8-me.sloppy.zone/skills/";
 const USER_ID = 1;
 
 @Injectable()

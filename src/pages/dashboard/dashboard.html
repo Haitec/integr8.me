@@ -18,7 +18,7 @@
     </ion-card-header>
 
     <ion-list class="skills">
-      <button ion-item *ngFor="let skill of job.skills" (click)="openSkill(skill.id)">
+      <button ion-item *ngFor="let skill of job.skills" (click)="openSkill(skill.id, skill.name)">
         {{ skill.name }}
         <br>
         <progress [value]="skill.score" max="100"></progress>
